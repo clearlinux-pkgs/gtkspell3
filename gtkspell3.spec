@@ -4,7 +4,7 @@
 #
 Name     : gtkspell3
 Version  : 3.0.9
-Release  : 1
+Release  : 2
 URL      : https://sourceforge.net/projects/gtkspell/files/3.0.9/gtkspell3-3.0.9.tar.xz
 Source0  : https://sourceforge.net/projects/gtkspell/files/3.0.9/gtkspell3-3.0.9.tar.xz
 Summary  : On-the-fly spell checking for GtkTextView widgets.
