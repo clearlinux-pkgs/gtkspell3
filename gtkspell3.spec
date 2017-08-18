@@ -4,7 +4,7 @@
 #
 Name     : gtkspell3
 Version  : 3.0.9
-Release  : 2
+Release  : 3
 URL      : https://sourceforge.net/projects/gtkspell/files/3.0.9/gtkspell3-3.0.9.tar.xz
 Source0  : https://sourceforge.net/projects/gtkspell/files/3.0.9/gtkspell3-3.0.9.tar.xz
 Summary  : On-the-fly spell checking for GtkTextView widgets.
@@ -82,8 +82,11 @@ locales components for the gtkspell3 package.
 %setup -q -n gtkspell3-3.0.9
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1491853416
+export SOURCE_DATE_EPOCH=1503075240
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -91,11 +94,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1491853416
+export SOURCE_DATE_EPOCH=1503075240
 rm -rf %{buildroot}
 %make_install
 %find_lang gtkspell3
