@@ -1,0 +1,5 @@
+3.0.10
+glibc-bin
+gobject-introspection-dev
+pkgconfig(enchant-2)
+vala
