@@ -4,7 +4,7 @@
 #
 Name     : gtkspell3
 Version  : 3.0.10
-Release  : 7
+Release  : 8
 URL      : https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz
 Source0  : https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz
 Summary  : Provides word-processor-style highlighting and replacement of misspelled words in a GtkTextView widget
@@ -14,6 +14,7 @@ Requires: gtkspell3-data = %{version}-%{release}
 Requires: gtkspell3-lib = %{version}-%{release}
 Requires: gtkspell3-license = %{version}-%{release}
 Requires: gtkspell3-locales = %{version}-%{release}
+BuildRequires : buildreq-gnome
 BuildRequires : docbook-xml
 BuildRequires : gettext
 BuildRequires : glibc-bin
@@ -26,6 +27,7 @@ BuildRequires : perl(XML::Parser)
 BuildRequires : pkgconfig(enchant-2)
 BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : vala
+BuildRequires : vala-dev
 
 %description
 /* gtkspell - a spell-checking addon for GTK's TextView widget
@@ -97,8 +99,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548351561
-%configure --disable-static
+export SOURCE_DATE_EPOCH=1548351881
+%configure --disable-static --enable-vala=yes
 make  %{?_smp_mflags}
 
 %check
@@ -109,7 +111,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1548351561
+export SOURCE_DATE_EPOCH=1548351881
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtkspell3
 cp COPYING %{buildroot}/usr/share/package-licenses/gtkspell3/COPYING
@@ -123,6 +125,8 @@ cp COPYING %{buildroot}/usr/share/package-licenses/gtkspell3/COPYING
 %defattr(-,root,root,-)
 /usr/lib64/girepository-1.0/GtkSpell-3.0.typelib
 /usr/share/gir-1.0/*.gir
+/usr/share/vala/vapi/gtkspell3-3.0.deps
+/usr/share/vala/vapi/gtkspell3-3.0.vapi
 
 %files dev
 %defattr(-,root,root,-)
