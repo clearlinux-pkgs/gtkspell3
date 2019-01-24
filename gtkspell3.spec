@@ -4,16 +4,16 @@
 #
 Name     : gtkspell3
 Version  : 3.0.10
-Release  : 6
+Release  : 7
 URL      : https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz
 Source0  : https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz
-Summary  : On-the-fly spell checking for GtkTextView widgets.
+Summary  : Provides word-processor-style highlighting and replacement of misspelled words in a GtkTextView widget
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: gtkspell3-data
-Requires: gtkspell3-lib
-Requires: gtkspell3-license
-Requires: gtkspell3-locales
+Requires: gtkspell3-data = %{version}-%{release}
+Requires: gtkspell3-lib = %{version}-%{release}
+Requires: gtkspell3-license = %{version}-%{release}
+Requires: gtkspell3-locales = %{version}-%{release}
 BuildRequires : docbook-xml
 BuildRequires : gettext
 BuildRequires : glibc-bin
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537645644
+export SOURCE_DATE_EPOCH=1548351561
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -109,10 +109,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1537645644
+export SOURCE_DATE_EPOCH=1548351561
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/gtkspell3
-cp COPYING %{buildroot}/usr/share/doc/gtkspell3/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/gtkspell3
+cp COPYING %{buildroot}/usr/share/package-licenses/gtkspell3/COPYING
 %make_install
 %find_lang gtkspell3
 
@@ -159,8 +159,8 @@ cp COPYING %{buildroot}/usr/share/doc/gtkspell3/COPYING
 /usr/lib64/libgtkspell3-3.so.0.2.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/gtkspell3/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/gtkspell3/COPYING
 
 %files locales -f gtkspell3.lang
 %defattr(-,root,root,-)
