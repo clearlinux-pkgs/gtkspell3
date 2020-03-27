@@ -4,7 +4,7 @@
 #
 Name     : gtkspell3
 Version  : 3.0.10
-Release  : 8
+Release  : 9
 URL      : https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz
 Source0  : https://sourceforge.net/projects/gtkspell/files/3.0.10/gtkspell3-3.0.10.tar.xz
 Summary  : Provides word-processor-style highlighting and replacement of misspelled words in a GtkTextView widget
